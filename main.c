@@ -6,6 +6,23 @@
 //Primitivas de funciones
 float wAndX();
 bool calculoDeR(float r);
+/* Posibles matrices individuales de tamaño completo, 
+bool xOR[4][4]= {{0,0,0,1},{0,1,1,1},{1,0,1,1},{1,1,1,1}} //bool??
+bool xAND[4][4]= {{0,0,0,1},{0,1,0,1},{1,0,0,1},{1,1,1,1}}
+
+ojala pudiera dibujar en los IDE
+Matriz de OR
+0 0 1 1 Xentrada1
+0 1 0 1 Xentrada2
+0 1 1 1 Resultados
+1 1 1 1 La matriz que dijo Juan que siempre esta en 1
+
+Matriz de AND
+0 0 1 1 Xentrada1
+0 1 0 1 Xentrada2
+0 0 0 1 Resultados
+1 1 1 1 La matriz que dijo Juan que siempre esta en 1
+*/
 //Declaracion de parametros
 float n = 0.25, err;
 int iteracion = 0;
