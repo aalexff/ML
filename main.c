@@ -12,10 +12,12 @@ bool yOr();
 
 bool calculoDeR();
 
+bool lmsAnd();
+bool lmsOr();
+
 //Declaracion de parametro
 float n = 0.25, errAnd[4], errOr[4];
 int iteracion = 0;
-//bool x[4][2]={{0,0},{0,1},{1,0},{1,1}};
 
 //Pesos aleatorios iniciales
 float w1[3] = {0.4, 0.3, 0.8};
@@ -51,11 +53,6 @@ int perceptronMain(int argc, char *argv[]) {
 	while (iteracion <= 100){
 		wAndX();
 		wOrX();
-		
-	/*  //LMS
-		w(n+1)And
-		w(n+1)Or*/
-		
 		iteracion++;
 	};
 	 
@@ -127,6 +124,16 @@ bool calculoDeR(float r[4]){
 }
 
 
+bool lmsAnd(){
+	//Pesos actualizados[i] = Pesos anteriores[i] + n*err[i]
+	errAnd;
+	
+}
+
+bool lmsOr(){
+	//Pesos actualizados[i] = Pesos anteriores[i] + n*err[i]
+	errOr;
+}
 	//		err = dnAnd - wXn[i];
 	//		err = dnOr - wXn[i];
 	
