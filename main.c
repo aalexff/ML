@@ -15,14 +15,17 @@ bool calculoDeR();
 //Declaracion de parametro
 float n = 0.25, errAnd[4], errOr[4];
 int iteracion = 0;
-bool x[4][2]={{0,0},{0,1},{1,0},{1,1}};
+//bool x[4][2]={{0,0},{0,1},{1,0},{1,1}};
 
+//Pesos aleatorios iniciales
 float w1[3] = {0.4, 0.3, 0.8};
 float w2[3] = {0.5, 0.5, 0.5};
 
+//X de entrada
 bool xOR[4][4]= {{0,0,1},{0,1,1},{1,0,1},{1,1,1}};
 bool xAND[4][4]= {{0,0,1},{0,1,1},{1,0,1},{1,1,1}};
 
+//Valores de salida deseados.
 bool dAnd[4]={0,0,0,1};
 bool dOr[4]={0,1,1,1};
 
@@ -122,6 +125,7 @@ bool calculoDeR(float r[4]){
 		}
 	}
 }
+
 
 	//		err = dnAnd - wXn[i];
 	//		err = dnOr - wXn[i];
