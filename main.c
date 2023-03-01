@@ -5,33 +5,6 @@
 
 //Primitivas de funciones
 float wAndX();
-<<<<<<< Updated upstream
-bool calculoDeR(float r);
-/* Posibles matrices individuales de tamaño completo, 
-bool xOR[4][4]= {{0,0,0,1},{0,1,1,1},{1,0,1,1},{1,1,1,1}} //bool??
-bool xAND[4][4]= {{0,0,0,1},{0,1,0,1},{1,0,0,1},{1,1,1,1}}
-
-ojala pudiera dibujar en los IDE
-Matriz de OR
-0 0 1 1 Xentrada1
-0 1 0 1 Xentrada2
-0 1 1 1 Resultados
-1 1 1 1 La matriz que dijo Juan que siempre esta en 1
-
-Matriz de AND
-0 0 1 1 Xentrada1
-0 1 0 1 Xentrada2
-0 0 0 1 Resultados
-1 1 1 1 La matriz que dijo Juan que siempre esta en 1
-*/
-//Declaracion de parametros
-float n = 0.25, err;
-int iteracion = 0;
-bool x[4][2]={{0,0},{0,1},{1,0},{1,1}};
-int weight[2] = {0.8, 0.4};
-
-int main(int argc, char *argv[]) {
-=======
 float wOrX();
 
 bool yAnd();
@@ -70,22 +43,13 @@ bool dOr[4]={0,1,1,1};
 	*/
 
 int perceptronMain(int argc, char *argv[]) {
->>>>>>> Stashed changes
 	//Declaracion de variables
-	bool andl[4] = {0,0,0,1}, orl[4] = {0,1,1,1};
-
+	//bool andl[4] = {0,0,0,1}, orl[4] = {0,1,1,1};
 	while (iteracion <= 100){
 		wAndX();
-<<<<<<< Updated upstream
-	/*	wOrX();
-		yAnd();
-		yOr();
-		//LMS
-=======
 		wOrX();
 		
 	/*  //LMS
->>>>>>> Stashed changes
 		w(n+1)And
 		w(n+1)Or*/
 		
@@ -96,22 +60,6 @@ int perceptronMain(int argc, char *argv[]) {
 }
 
 float wAndX(){
-<<<<<<< Updated upstream
-	float r[4];
-	for(int j = 0; j <= 3; j++){
-		for(int i = 0; i <= 1; i++){
-			r[j] = weight[i] * x[j][i];
-			calculoDeR(r[i]);
-		}	
-	}
-}
-
-bool calculoDeR(float r){
-	if (r>=0){
-		return 1;
-	}else{
-		return 0;
-=======
 	float rAnd[4], wXn[4]/*delta*/; //= a resultado wX
 	
 	for(int j = 0; j <= 3; j++){
@@ -172,7 +120,6 @@ bool calculoDeR(float r[4]){
 			Fr[aux] = 0;
 			return Fr[aux];
 		}
->>>>>>> Stashed changes
 	}
 }
 
