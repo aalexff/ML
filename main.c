@@ -52,32 +52,30 @@ int perceptronMain(int argc, char *argv[]) {
 }
 
 float wAndX(){
-	float rAnd[4];
+	float rAnd[4], dn, wXn[4]/*delta*/; //= a resultado wXn
 	bool Fr;
 	for(int j = 0; j <= 3; j++){
 		for(int i = 0; i <= 3; i++){ //Multiplicación producto punto, lee un peso por cada elemento en cada fila
 			rAnd[j] = weight[i]; //Para que no haya alteracion del valor del peso en la primera iteracion
-			weight[i] = weight[i] * xAND[j][i]; //El valor del peso cambia con dada elemento
-			/*Calculo de error, err = (dn??? - wXn)
-			calculo de peso w(n+1) = Wi - n*err*x[j][i] No se si esto ya cuente como la funcion w(n+1) en main.
-			modificar ↓↓↓↓↓*/			
-			weight[i] = weight[i-1]+weight[i]; //weight vale su valor actual mas el anterior.		
+			wXn[i] = weight[i] * xAND[j][i]; //El valor del peso cambia con dada elemento
+			dn = wXn[i]-weight[i];
+			err = dn - wXn[i];
+			weight[i] = wXn[i-1]-n*err*xAND[j][i]; //weight vale su valor actual mas el anterior.			
 		}	
 		Fr = calculoDeR(rAnd[j]); // No se que se hacia con el calculo de R pero estaba en el cuaderno
 	}
 }
 
 float wOrX(){
-	float rOr[4]; //= a resultado wXn
+	float rOr[4], dn, wXn[4]/*delta*/; //= a resultado wXn
 	bool Fr;
 	for(int j = 0; j <= 3; j++){ //Multiplicación producto punto, lee un peso por cada elemento en cada fila
 		for(int i = 0; i <= 3; i++){ 
 			rOr[j] = weight[i]; //Para que no haya alteracion del valor del peso en la primera iteracion
-			weight[i] = weight[i] * xAND[j][i]; //El valor del peso cambia con dada elemento
-			/*Calculo de error, err = (dn??? - wXn)
-			calculo de peso w(n+1) = Wi - n*err*x[j][i]
-			modificar ↓↓↓↓↓*/
-			weight[i] = weight[i-1]+weight[i]; //weight vale su valor actual mas el anterior.	
+			wXn[i] = weight[i] * xOR[j][i]; //El valor del peso cambia con dada elemento
+			dn = wXn[i]-weight[i];
+			err = dn - wXn[i];
+			weight[i] = wXn[i-1]-n*err*xOR[j][i]; //weight vale su valor actual mas el anterior.	
 		}
 		Fr = calculoDeR(rOr[j]);	
 	}
