@@ -60,7 +60,7 @@ int perceptronMain(int argc, char *argv[]) {
 }
 
 float wAndX(){
-	float rAnd[4], wXn[4]/*delta*/; //= a resultado wX
+	float rAnd[4]; //= a resultado wX
 	
 	for(int j = 0; j <= 3; j++){
 		for(int i = 0; i <= 2; i++){ //Multiplicacion producto punto, lee un peso por cada elemento en cada fila
@@ -70,10 +70,11 @@ float wAndX(){
 	}
 	
 	yAnd(rAnd[4]);
+	lmsAnd(w1[3]);
 }
 
 float wOrX(){
-	float rOr[4], wXn[4]/*delta*/; //= a resultado wXn
+	float rOr[4]; //= a resultado wXn
 	
 	for(int j = 0; j <= 3; j++){ //Multiplicacion producto punto, lee un peso por cada elemento en cada fila
 		for(int i = 0; i <= 2; i++){ 
@@ -83,6 +84,7 @@ float wOrX(){
 	}
 	
 	yOr(rOr[4]);
+	lmsOr(w2[3]);
 }
 
 bool yAnd(float rAnd[4]){
@@ -124,15 +126,23 @@ bool calculoDeR(float r[4]){
 }
 
 
-bool lmsAnd(){
-	//Pesos actualizados[i] = Pesos anteriores[i] + n*err[i]
-	errAnd;
+bool lmsAnd(float w1[3]){
+	//Pesos actualizados[i] = Pesos anteriores[i] + n*err[i]*Xn
+	for(int j = 0; j <= 3; j++){
+		for(int i = 0; i <= 2; i++){ 
+			w1[i] = w1[i-1]+n*errAnd[i]*xAND[j][i]; //ok, y esto donde vergas se guarda
+		}
+	}
 	
 }
 
-bool lmsOr(){
-	//Pesos actualizados[i] = Pesos anteriores[i] + n*err[i]
-	errOr;
+bool lmsOr(float w2[3]){
+	//Pesos actualizados[i] = Pesos anteriores[i] + n*err[i]*Xn
+	for(int j = 0; j <= 3; j++){ //Multiplicacion producto punto, lee un peso por cada elemento en cada fila
+		for(int i = 0; i <= 2; i++){
+			w2[i] = w2[i-1]+n*errOr[i]*xOR[j][i];
+		}
+	}
 }
 	//		err = dnAnd - wXn[i];
 	//		err = dnOr - wXn[i];
